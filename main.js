@@ -24,7 +24,7 @@ $(document).ready(function() {
     document.getElementById('random').innerHTML += '<span>' + array[i] + '</span>';
   }
   // Faccio partire il timer di 30 secondi
-  setTimeout(clock, 30);
+  setTimeout(clock, 30000);
 
   // Creo la funzione clock dove creo i miei 5 prompt per chiedere i numeri
   function clock() {
