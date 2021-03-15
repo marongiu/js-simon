@@ -10,16 +10,21 @@ $(document).ready(function() {
   var array = [];
   // Creo un ciclo for per ripetere la generazione di numeri 5 volte
   for (var i = 1; i <= 5 ; i++) {
-    var randomNumber = Math.floor(Math.random() * 100);
+    var randomNumber = Math.floor(Math.random() * (130 - 1 + 1)) + 1;
     // Pusho il numero generato nell'array vuota
     if (!array.includes(randomNumber)) {
+      array.push(randomNumber);
+    } else {
       array.push(randomNumber);
     }
   }
   console.log("I numeri generati casualmente", array); // I numeri generati casualmente
-  // Stampo i numeri generati
+  // Stampo i numeri casuali
+  for (var i = 0; i < array.length; i++) {
+    document.getElementById('random').innerHTML += '<span>' + array[i] + '</span>';
+  }
   // Faccio partire il timer di 30 secondi
-  setTimeout(clock, 30000);
+  setTimeout(clock, 30);
 
   // Creo la funzione clock dove creo i miei 5 prompt per chiedere i numeri
   function clock() {
@@ -37,8 +42,22 @@ $(document).ready(function() {
         checkNumber.push(userNumber);
       }
     }
+
+    // NUMERI SCELTI DALL'UTENTE
     console.log("I numeri da te inseriti sono" , arrayUser); // I numeri inseriti dall'utente
-    console.log("I numeri da te indovinati sono: ", checkNumber); // I numeri corretti
+    for (var i = 0; i < arrayUser.length; i++) {
+      document.getElementById('usernumber').innerHTML += '<span>' + arrayUser[i] + '</span>';
+    }
+
+    //PUNTEGGIO
     console.log("Hai indovinato ", checkNumber.length, "numeri"); // Il punteggio
+    document.getElementById('points').innerHTML += '<span>' + checkNumber.length + '<span>';
+
+    // NUMERI CORRETTI
+    console.log("I numeri da te indovinati sono: ", checkNumber); // I numeri corretti
+
+    for (var i = 0; i < checkNumber.length; i++) {
+      document.getElementById('checknumber').innerHTML += '<span>' + checkNumber[i] + '<span>'
+    }
   }
 });
