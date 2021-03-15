@@ -10,18 +10,16 @@ $(document).ready(function() {
   var array = [];
   // Creo un ciclo for per ripetere la generazione di numeri 5 volte
   for (var i = 1; i <= 5 ; i++) {
-    var randomNumber = Math.floor(Math.random() * 150);
+    var randomNumber = Math.floor(Math.random() * 100);
     // Pusho il numero generato nell'array vuota
-    array.push(randomNumber);
+    if (!array.includes(randomNumber)) {
+      array.push(randomNumber);
+    }
   }
-  console.log(array); // I numeri generati casualmente
+  console.log("I numeri generati casualmente", array); // I numeri generati casualmente
   // Stampo i numeri generati
-  for (var i = 0; i < array.length; i++) {
-    document.getElementById('number').innerHTML += '<span>' + array[i] + '</span>';
-  }
-
   // Faccio partire il timer di 30 secondi
-  setTimeout(clock, 1000);
+  setTimeout(clock, 30000);
 
   // Creo la funzione clock dove creo i miei 5 prompt per chiedere i numeri
   function clock() {
@@ -39,8 +37,8 @@ $(document).ready(function() {
         checkNumber.push(userNumber);
       }
     }
-    console.log(arrayUser); // I numeri inseriti dall'utente
-    console.log(checkNumber); // I numeri corretti
-    console.log(checkNumber.length); // Il punteggio
+    console.log("I numeri da te inseriti sono" , arrayUser); // I numeri inseriti dall'utente
+    console.log("I numeri da te indovinati sono: ", checkNumber); // I numeri corretti
+    console.log("Hai indovinato ", checkNumber.length, "numeri"); // Il punteggio
   }
 });
