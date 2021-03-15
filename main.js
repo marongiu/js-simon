@@ -19,17 +19,16 @@ $(document).ready(function() {
     }
   }
   console.log("I numeri generati casualmente", array); // I numeri generati casualmente
-  // Stampo i numeri casuali
   for (var i = 0; i < array.length; i++) {
     document.getElementById('random').innerHTML += '<span class="numberrandom">' + array[i] + '</span>';
-  }
-
+  };
   // Faccio partire il timer di 30 secondi
   setTimeout(function () {
     // Nascondo i numeri dopo 30 secondi
-    $('#random').hide();
+    $('#random span').hide();
     // richiamo la funzione
     clock();
+    // Stampo i numeri casuali
   },30000);
 
   // Creo la funzione clock dove creo i miei 5 prompt per chiedere i numeri
@@ -65,5 +64,22 @@ $(document).ready(function() {
     for (var i = 0; i < checkNumber.length; i++) {
       document.getElementById('checknumber').innerHTML += '<span>' + checkNumber[i] + '<span>'
     }
+  }
+
+  // Pefezionamenti
+  var count=30;
+
+  var counter=setInterval(timer, 1000);
+
+  function timer()
+  {
+    count=count-1;
+    if (count <= 0)
+    {
+       clearInterval(counter);
+
+       return;
+    }
+  $('#countdown').html(count);
   }
 });
