@@ -8,15 +8,13 @@
 $(document).ready(function() {
   // Creo un array vuota dove pushare i numeri
   var array = [];
-
   // Creo un ciclo for per ripetere la generazione di numeri 5 volte
   for (var i = 1; i <= 5 ; i++) {
     var randomNumber = Math.floor(Math.random() * 150);
     // Pusho il numero generato nell'array vuota
     array.push(randomNumber);
   }
-  console.log(array);
-
+  console.log(array); // I numeri generati casualmente
   // Stampo i numeri generati
   for (var i = 0; i < array.length; i++) {
     document.getElementById('number').innerHTML += '<span>' + array[i] + '</span>';
@@ -25,15 +23,24 @@ $(document).ready(function() {
   // Faccio partire il timer di 30 secondi
   setTimeout(clock, 1000);
 
-// Creo la funzione clock dove creo i miei 5 prompt per chiedere i numeri
+  // Creo la funzione clock dove creo i miei 5 prompt per chiedere i numeri
   function clock() {
     //Creo la mia array vuota dove pushare i numeri dell'utente
     var arrayUser = [];
+    // Creo una variabile con i numeri corretti
+    var checkNumber = [];
     for (var i = 1; i <= 5; i++) {
       var userNumber = parseInt(prompt("Dimmi i numeri che hai visualizzato"));
       // Li pusho nell'array vuota
       arrayUser.push(userNumber);
+      // Se il numero che ho inserito è presente nella lista array allora lo Pusho
+      // nella lista CheckNumber
+      if (array.includes(userNumber)) {
+        checkNumber.push(userNumber);
+      }
     }
-    console.log(arrayUser);
+    console.log(arrayUser); // I numeri inseriti dall'utente
+    console.log(checkNumber); // I numeri corretti
+    console.log(checkNumber.length); // Il punteggio
   }
 });
