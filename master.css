@@ -2,9 +2,16 @@ span {
   margin: 0 10px;
 }
 
-#number {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 100px);
+}
+
+#number {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100px;
 }
