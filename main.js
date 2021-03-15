@@ -21,11 +21,14 @@ $(document).ready(function() {
   console.log("I numeri generati casualmente", array); // I numeri generati casualmente
   // Stampo i numeri casuali
   for (var i = 0; i < array.length; i++) {
-    document.getElementById('random').innerHTML += '<span>' + array[i] + '</span>';
+    document.getElementById('random').innerHTML += '<span class="numberrandom">' + array[i] + '</span>';
   }
+
   // Faccio partire il timer di 30 secondi
   setTimeout(function () {
+    // Nascondo i numeri dopo 30 secondi
     $('#random').hide();
+    // richiamo la funzione
     clock();
   },30000);
 
