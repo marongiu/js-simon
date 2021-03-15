@@ -6,11 +6,21 @@
 
 // Stampo 5 numeri casuali
 $(document).ready(function() {
+  // Creo un array vuota dove pushare i numeri
     var array = [];
 
-    for (var i = 0; i <= 4; i++) {
-      var randomNumber = Math.floor(Math.random() * 10);
-      array.push(randomNumber)
+// Creo un ciclo for per ripetere la generazione di numeri 5 volte
+    for (var i = 1; i <= 5 ; i++) {
+      var randomNumber = Math.floor(Math.random() * 150);
+      // Pusho il numero generato nell'array vuota
+      array.push(randomNumber);
     }
+
+// Stampo i numeri generati
+    for (var i = 0; i < array.length; i++) {
+      document.getElementById('number').innerHTML += '<span>' + array[i] + '</span>';
+    }
+
+    
 
 });

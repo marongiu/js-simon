@@ -1,0 +1,10 @@
+span {
+  margin: 0 10px;
+}
+
+#number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
